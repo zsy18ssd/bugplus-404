@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>404 DRESS NOT FOUND | BUG+</title>
+  <style>
+    body { 
+      background: #000; 
+      color: #00ffe6; 
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+    h1 { 
+      font-size: 4em;
+      margin-bottom: 0;
+      color: #f40093;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+    }
+    h1::before {
+      content: "BUG+的新衣";
+      position: absolute;
+      left: 3px;
+      top: -3px;
+      color: #00ffe6;
+      z-index: -1;
+    }
+    h1::after {
+      content: "BUG+的新衣";
+      position: absolute;
+      left: -3px;
+      top: 2px;
+      color: rgba(0,255,230,0.4);
+      z-index: -2;
+    }
+    .error-code {
+      font-size: 8em;
+      margin: 0.2em 0;
+      background: linear-gradient(45deg, #f40093, #00ffe6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(244,0,147,0.7));
+    }
+    .message {
+      font-size: 1.5em;
+      border-top: 1px dashed #f40093;
+      padding-top: 1em;
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 0 0 5px #00ffe6;
+    }
+    .blink {
+      animation: blink 0.7s step-end infinite, glitch 3s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0.3; }
+    }
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 3px); }
+      40% { transform: translate(-5px, -2px); }
+      60% { transform: translate(4px, 1px); }
+      80% { transform: translate(2px, -4px); }
+      100% { transform: translate(0); }
+    }
+    /* 背景故障粒子 */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          rgba(244,0,147,0.1) 0px,
+          rgba(244,0,147,0.1) 1px,
+          transparent 1px,
+          transparent 3px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,255,230,0.1) 0px,
+          rgba(0,255,230,0.1) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <h1>BUG+的新衣</h1>
+  <div class="error-code">404</div>
+  <div class="message">
+    <p>SYSTEM ALERT: <span class="blink">DRESS_NOT_FOUND</span></p>
+    <p>"世界太正确，我们需要一点bug"</p>
+  </div>
+  
+  <script>
+    // 随机像素故障特效
+    setInterval(() => {
+      document.body.style.background = Math.random() > 0.5 
+        ? `radial-gradient(circle at ${Math.random()*100}% ${Math.random()*100}%, #000, #111)` 
+        : "#000";
+    }, 300);
+  </script>
+</body>
+</html>
